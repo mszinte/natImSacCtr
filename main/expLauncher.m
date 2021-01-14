@@ -12,11 +12,8 @@
 
 % to do
 % -----
-% 1. make video
-% 5. test on myself/guillaume
-% 3. write to Jason about design choices
 % 6. make paper work for testing subjects
-% 7. test subjects
+% 7. test subjects (Emma, Kevin, Jeremy, Guillaume, Marine, Theophyle)
 
 % design idea
 % -----------
@@ -26,14 +23,6 @@
 % trials of 30 seconds freeview each
 % inter-trial intervals of 2 seconds each
 % binocular eye recordings
-
-% Questions
-% ---------
-% 1. Can we keep only the full image, not the cropped one ?
-% 2. Is 40 dva width image sufficient (not 20 dva) ?
-% 2. Do you think that 40 images is enough (instead of 80)?
-% 3. Is the use of two contrast sufficient ? I think of 0.05 and 0.1 as Jason used ?
-% 4. We preffered to play the 2 contrast in interleaved trials to avoid any specific adaptation or startegy
 
 % First settings
 % --------------

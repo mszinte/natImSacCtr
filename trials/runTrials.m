@@ -105,6 +105,7 @@ for t = 1:const.trial_per_block
         % Create movie
         % ------------
         if const.mkVideo
+            open(const.vid_obj);
             expDes.vid_num          =   expDes.vid_num + 1;
             image_vid               =   Screen('GetImage', scr.main);
             imwrite(image_vid,sprintf('%s_frame_%i.png',const.movie_image_file,expDes.vid_num));

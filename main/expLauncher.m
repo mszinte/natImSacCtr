@@ -13,7 +13,6 @@
 % to do
 % -----
 % 1. make video
-% 2. test with eyelink
 % 5. test on myself/guillaume
 % 3. write to Jason about design choices
 % 6. make paper work for testing subjects
@@ -21,7 +20,7 @@
 
 % design idea
 % -----------
-% 10 blocks of 8 trials (?:?? min, about 1h total)
+% 10 blocks of 8 trials (4:14 min, less than 1h in total)
 % 40 trials of 40 dva width images (large, not cropped) with 0.05 contrast
 % 40 trials of 40 dva width images (large, not cropped) with 0.05 contrast
 % trials of 30 seconds freeview each

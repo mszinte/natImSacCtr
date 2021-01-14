@@ -116,7 +116,7 @@ for t_run = 1:num_run
         if image_contrast_val == 1
             res(t_trial).trialname = ref_img(image_num_val).c1;
             im_ref = sprintf('im%i_c1',image_num_val);    
-        elseif image_blank_size_val == 2
+        elseif image_contrast_val == 2
             res(t_trial).trialname = ref_img(image_num_val).c2;
             im_ref = sprintf('im%i_c2',image_num_val);
         end

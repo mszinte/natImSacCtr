@@ -40,7 +40,7 @@ const.fix_rad               =   vaDeg2pix(const.fix_radVal,scr);                
 %% Time parameters
 const.freeview_dur          =   30.0;                                                               % free viewing duration in seconds
 const.freeview_num          =   (round(const.freeview_dur/scr.frame_duration));                     % free viewing duration in screen frames
-const.iti_dur               =   2.0;                                                                % inter trial interval in seconds
+const.iti_dur               =   2;                                                                % inter trial interval in seconds
 const.iti_num               =   (round(const.iti_dur/scr.frame_duration));                          % inter trial interval in screen frames
 
 %% Space parameter

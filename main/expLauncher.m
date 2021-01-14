@@ -45,7 +45,7 @@ const.expName           =   'natImaSacCtr';     % Experiment name
 const.expStart          =   1;                  % Start of a recording exp                          0 = NO  , 1 = YES
 const.checkTrial        =   0;                  % Print trial conditions (for debugging)            0 = NO  , 1 = YES
 const.writeLogTxt       =   0;                  % Write a log file in addition to eyelink file      0 = NO  , 1 = YES
-const.mkVideo           =   1;                  % Make a video of a run                             0 = NO  , 1 = YES
+const.mkVideo           =   0;                  % Make a video of a run                             0 = NO  , 1 = YES
 
 % External controls
 % -----------------

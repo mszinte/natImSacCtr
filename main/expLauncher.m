@@ -12,11 +12,10 @@
 
 % to do
 % -----
-% 1. create git repo
+% 1. make video
 % 2. test with eyelink
-% 3. write to Jason about design choices
-% 4. adapt analyses and analyse data 
 % 5. test on myself/guillaume
+% 3. write to Jason about design choices
 % 6. make paper work for testing subjects
 % 7. test subjects
 
@@ -31,8 +30,9 @@
 
 % Questions
 % ---------
-% 1. Can we keep only the full image, not the cropped one ? => it gives 40 pictures
+% 1. Can we keep only the full image, not the cropped one ?
 % 2. Is 40 dva width image sufficient (not 20 dva) ?
+% 2. Do you think that 40 images is enough (instead of 80)?
 % 3. Is the use of two contrast sufficient ? I think of 0.05 and 0.1 as Jason used ?
 % 4. We preffered to play the 2 contrast in interleaved trials to avoid any specific adaptation or startegy
 

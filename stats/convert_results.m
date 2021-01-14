@@ -13,8 +13,8 @@ function convert_results(subject,num_run,plot_res)
 % .mat results
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 30 / 07 / 2020
-% Project :     natImSac
+% Last update : 14 / 01 / 2021
+% Project :     natImSacCtr
 % Version :     1.0
 % ----------------------------------------------------------------------
 
@@ -30,12 +30,7 @@ list_filename = {   sprintf('%s_task-%s_run-01',subject,task1_txt),sprintf('%s_t
                     sprintf('%s_task-%s_run-03',subject,task1_txt),sprintf('%s_task-%s_run-04',subject,task1_txt),...
                     sprintf('%s_task-%s_run-05',subject,task1_txt),sprintf('%s_task-%s_run-06',subject,task1_txt),...
                     sprintf('%s_task-%s_run-07',subject,task1_txt),sprintf('%s_task-%s_run-08',subject,task1_txt),...
-                    sprintf('%s_task-%s_run-09',subject,task1_txt),sprintf('%s_task-%s_run-10',subject,task1_txt),...
-                    sprintf('%s_task-%s_run-11',subject,task1_txt),sprintf('%s_task-%s_run-12',subject,task1_txt),...
-                    sprintf('%s_task-%s_run-13',subject,task1_txt),sprintf('%s_task-%s_run-14',subject,task1_txt),...
-                    sprintf('%s_task-%s_run-15',subject,task1_txt),sprintf('%s_task-%s_run-16',subject,task1_txt),...
-                    sprintf('%s_task-%s_run-17',subject,task1_txt),sprintf('%s_task-%s_run-18',subject,task1_txt),...
-                    sprintf('%s_task-%s_run-19',subject,task1_txt),sprintf('%s_task-%s_run-20',subject,task1_txt)};
+                    sprintf('%s_task-%s_run-09',subject,task1_txt),sprintf('%s_task-%s_run-10',subject,task1_txt)};
 
 
 % software for edf conversion
@@ -43,7 +38,7 @@ if ismac
     edf2asc_dir = '/Applications/Eyelink/EDF_Access_API/Example';
     end_file = '';
 elseif ispc 
-    edf2asc_dir = 'C:\Experiments\natImSac\stats\';
+    edf2asc_dir = 'C:\Experiments\natImSacCtr\stats\';
     end_file ='.exe';
 end
 
@@ -54,8 +49,8 @@ for t_run = 1:num_run
     % get data
     tsv_filename = sprintf('%s/func/%s_events.tsv',file_dir,list_filename{t_run});
     val = tdfread(tsv_filename);
-    image_blank_size = val.image_blank_size;
-    image_blank_num = val.image_blank_num;
+    image_contrast = val.image_contrast;
+    image_num = val.image_num;
         
 	mat_filename = sprintf('%s/add/%s_matFile.mat',file_dir,list_filename{t_run});
     load(mat_filename);
@@ -100,7 +95,6 @@ for t_run = 1:num_run
     end
     fclose(msgfid);
     
-    
     % load eye coord data
     datafid_left  = fopen(sprintf('%s_left.dat',edf_filename),'r');
     eye_dat_left = textscan(datafid_left,'%f%f%f%f%s');
@@ -115,26 +109,16 @@ for t_run = 1:num_run
         t_trial  = t_trial + 1;
         
         % get image name
-        image_blank_size_val = image_blank_size(tBlock);
-        image_blank_num_val = image_blank_num(tBlock);
-        if image_blank_size_val == 1
-            if image_blank_num_val > 80
-                res(t_trial).trialname = 'blank_large';
-            else
-                res(t_trial).trialname = ref_img(image_blank_num_val).large;
-                im_ref = sprintf('im%i_large',image_blank_num_val);
-                matX = [-20,20];
-                matY = [-15,15];
-            end
+        matX = [-20,20];
+        matY = [-15,15];
+        image_contrast_val = image_contrast(tBlock);
+        image_num_val = image_num(tBlock);
+        if image_contrast_val == 1
+            res(t_trial).trialname = ref_img(image_num_val).c1;
+            im_ref = sprintf('im%i_c1',image_num_val);    
         elseif image_blank_size_val == 2
-            if image_blank_num_val > 80
-                res(t_trial).trialname = 'blank_small';
-            else
-                res(t_trial).trialname = ref_img(image_blank_num_val).small;
-                im_ref = sprintf('im%i_small',image_blank_num_val);
-                matX = [-10,10];
-                matY = [-7.5,7.5];
-            end
+            res(t_trial).trialname = ref_img(image_num_val).c2;
+            im_ref = sprintf('im%i_c2',image_num_val);
         end
         
         % get corresponding data
@@ -201,13 +185,11 @@ for t_run = 1:num_run
         
         % plot data
         if plot_res == 1
-            if image_blank_num_val <= 80
-                im = imread(sprintf('stim/im/%s.jpg',im_ref));
-                image(im,'XData', matX, 'YData', matY); hold on;
-                plot(res(t_trial).data_left(2,:),-res(t_trial).data_left(3,:),'w');
-                pause(2);
-                hold off;
-            end
+            im = imread(sprintf('stim/im/%s.jpg',im_ref));
+            image(im,'XData', matX, 'YData', matY); hold on;
+            plot(res(t_trial).data_left(2,:),-res(t_trial).data_left(3,:),'w');
+            pause(2);
+            hold off;
         end
         
     end
@@ -223,7 +205,5 @@ end
 file_dir = sprintf('%s/data/%s',cd,subject);
 
 save(sprintf('%s/%s_resmat.mat',file_dir,subject),'res')
-
-
 
 end

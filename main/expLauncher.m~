@@ -12,6 +12,7 @@
 
 % to do
 % -----
+% 0. make design with different 40 images for 5 and 10% contrast
 % 1. make paper work for testing subjects
 % 7. test subjects (Emma, Kevin, Jeremy, Guillaume, Marine, Theophyle)
 
@@ -20,7 +21,7 @@
 % 10 blocks of 8 trials (4:14 min, less than 1h in total)
 % 40 trials of 40 dva width images (large, not cropped) with 0.05 contrast
 % 40 trials of 40 dva width images (large, not cropped) with 0.05 contrast
-% 5 and 10% images are different and randomly picked between participants
+% 5 and 10% images are different and r
 % trials of 30 seconds freeview each
 % inter-trial intervals of 2 seconds each
 % binocular eye recordings
@@ -32,14 +33,14 @@ Screen('CloseAll');clear all;clear mex;clear functions;close all;home;AssertOpen
 % General settings
 % ----------------
 const.expName           =   'natImaSacCtr';     % Experiment name
-const.expStart          =   0;                  % Start of a recording exp                          0 = NO  , 1 = YES
+const.expStart          =   1;                  % Start of a recording exp                          0 = NO  , 1 = YES
 const.checkTrial        =   0;                  % Print trial conditions (for debugging)            0 = NO  , 1 = YES
 const.writeLogTxt       =   0;                  % Write a log file in addition to eyelink file      0 = NO  , 1 = YES
 const.mkVideo           =   0;                  % Make a video of a run                             0 = NO  , 1 = YES
 
 % External controls
 % -----------------
-const.tracker           =   0;              % run with eye tracker                              0 = NO  , 1 = YES
+const.tracker           =   1;              % run with eye tracker                              0 = NO  , 1 = YES
 
 % Run order and number per condition
 % ----------------------------------

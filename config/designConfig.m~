@@ -54,11 +54,10 @@ if const.runNum == 1
     trialMat = zeros(expDes.nb_trials,expDes.nb_var);
     ii = 0;
     for var1 = 1:expDes.nb_var1
-        for var2 = 1:expDes.nb_var2/2
-            ii = ii + 1;
-            trialMat(ii, 1) = var1;
-            trialMat(ii, 2) = imageMat(ii);
-        end
+        for var2 = 
+        ii = ii + 1;
+        trialMat(ii, 1) = var1;
+        trialMat(ii, 2) = var1;
     end
     
     trialMat = trialMat(randperm(expDes.nb_trials)',:);

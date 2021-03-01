@@ -12,7 +12,7 @@ function [const]=sbjConfig(const)
 % const : struct containing constant configurations
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 13 / 01 / 2021
+% Last update : 22 / 02 / 2021
 % Project :     natImSacCtr
 % Version :     1.0
 % ----------------------------------------------------------------------
@@ -29,12 +29,12 @@ if const.expStart
     end
 end
 
-const.runNum            =   input(sprintf('\n\tRun number (1 to 10): '));
+const.runNum            =   input(sprintf('\n\tRun number (1 to 20): '));
 if isempty(const.runNum)
     error('Incorrect run number');
 end
-if const.runNum > 10
-    error('Only 10 runs');
+if const.runNum > 20
+    error('Only 20 runs');
 end
 
 if const.cond_run_num(const.runNum) > 9

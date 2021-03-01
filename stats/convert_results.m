@@ -30,8 +30,12 @@ list_filename = {   sprintf('%s_task-%s_run-01',subject,task1_txt),sprintf('%s_t
                     sprintf('%s_task-%s_run-03',subject,task1_txt),sprintf('%s_task-%s_run-04',subject,task1_txt),...
                     sprintf('%s_task-%s_run-05',subject,task1_txt),sprintf('%s_task-%s_run-06',subject,task1_txt),...
                     sprintf('%s_task-%s_run-07',subject,task1_txt),sprintf('%s_task-%s_run-08',subject,task1_txt),...
-                    sprintf('%s_task-%s_run-09',subject,task1_txt),sprintf('%s_task-%s_run-10',subject,task1_txt)};
-
+                    sprintf('%s_task-%s_run-09',subject,task1_txt),sprintf('%s_task-%s_run-10',subject,task1_txt),...
+                    sprintf('%s_task-%s_run-11',subject,task1_txt),sprintf('%s_task-%s_run-12',subject,task1_txt),...
+                    sprintf('%s_task-%s_run-13',subject,task1_txt),sprintf('%s_task-%s_run-14',subject,task1_txt),...
+                    sprintf('%s_task-%s_run-15',subject,task1_txt),sprintf('%s_task-%s_run-16',subject,task1_txt),...
+                    sprintf('%s_task-%s_run-17',subject,task1_txt),sprintf('%s_task-%s_run-18',subject,task1_txt),...
+                    sprintf('%s_task-%s_run-19',subject,task1_txt),sprintf('%s_task-%s_run-20',subject,task1_txt)};
 
 % software for edf conversion
 if ismac
@@ -109,16 +113,23 @@ for t_run = 1:num_run
         t_trial  = t_trial + 1;
         
         % get image name
-        matX = [-20,20];
-        matY = [-15,15];
         image_contrast_val = image_contrast(tBlock);
         image_num_val = image_num(tBlock);
         if image_contrast_val == 1
             res(t_trial).trialname = ref_img(image_num_val).c1;
-            im_ref = sprintf('im%i_c1',image_num_val);    
+            im_ref = sprintf('im%i_c1',image_num_val);
         elseif image_contrast_val == 2
             res(t_trial).trialname = ref_img(image_num_val).c2;
             im_ref = sprintf('im%i_c2',image_num_val);
+        end
+        
+        if t_run <= 10
+            matX = [-20,20];
+            matY = [-15,15];
+        else
+            matX = [-10,10];
+            matY = [-7.5,7.5];
+            res(t_trial).trialname(5)='2'; % small images
         end
         
         % get corresponding data

@@ -9,18 +9,29 @@
 % ===================
 % Experiment in which human participant free view natural images to 
 % determine saccade and fixation statistics with low contrat images
+% 10 first run => large image
+% 10 last run => small images (code was adapted after running participant
+% first 10 runs to add small size images)
 
 % to do
 % -----
-% 1. make paper work for testing subjects
-% 7. test subjects (Emma, Kevin, Jeremy, Guillaume, Marine, Theophyle)
+% 1. test with eyelink + test convert_results
+% 1. test subjects (Emma, Kevin, Jeremy, Guillaume, Marine, Theophyle)
 
 % design idea
 % -----------
+% 10 first block:
 % 10 blocks of 8 trials (4:14 min, less than 1h in total)
 % 40 trials of 40 dva width images (large, not cropped) with 0.05 contrast
 % 40 trials of 40 dva width images (large, not cropped) with 0.05 contrast
-% 5 and 10% images are different and randomly picked between participants
+% 5% and 10% images are different and randomly picked between participants
+
+% 10 last block: 
+% 10 blocks of 8 trials (4:14 min, less than 1h in total)
+% 40 trials of 20 dva width images (large, not cropped) with 0.05 contrast
+% 40 trials of 20 dva width images (large, not cropped) with 0.05 contrast
+% 5 and 10% images are the images seen at 10 and 5% contrast within the  first 10 blocks
+
 % trials of 30 seconds freeview each
 % inter-trial intervals of 2 seconds each
 % binocular eye recordings
@@ -39,17 +50,19 @@ const.mkVideo           =   0;                  % Make a video of a run         
 
 % External controls
 % -----------------
-const.tracker           =   1;              % run with eye tracker                              0 = NO  , 1 = YES
+const.tracker           =   0;              % run with eye tracker                              0 = NO  , 1 = YES
 
 % Run order and number per condition
 % ----------------------------------
-const.cond_run_order    =   [01;01;01;01;01;01;01;01;01;01];
-const.cond_run_num      =   [01;02;03;04;05;06;07;08;09;10];
+const.cond_run_order    =   [01;01;01;01;01;01;01;01;01;01;...
+                             01;01;01;01;01;01;01;01;01;01];
+const.cond_run_num      =   [01;02;03;04;05;06;07;08;09;10;...
+                             11;12;13;14;15;16;17;18;19;20];
 
 % Desired screen setting
 % ----------------------
 const.desiredFD         =   120;            % Desired refresh rate
-const.desiredRes        =   [1920,1080];    % Desired resolution
+const.desiredRes        =   [1920,1080];    % Desired resolution 
 % fprintf(1,'\n\n\tDon''t forget to change before testing\n');
 
 % Path

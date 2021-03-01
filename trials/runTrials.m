@@ -16,7 +16,7 @@ function [expDes] = runTrials(scr,const,expDes,my_key)
 % expDes : struct containing all the variable design configurations.
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 13 / 01 / 2021
+% Last update : 22 / 02 / 2021
 % Project :     natImSacCtr
 % Version :     1.0
 % ----------------------------------------------------------------------
@@ -55,7 +55,6 @@ for t = 1:const.trial_per_block
     t_handle                =   Screen('MakeTexture',scr.main,imageToDraw);
     texrect                 =   Screen('Rect', t_handle);
     
-    
     if const.checkTrial && const.expStart == 0
         fprintf(1,'\n\n\t========================  TRIAL %3.0f ========================\n',t);
         fprintf(1,'\n\tImage contrast               =\t%s',expDes.txt_var1{var1});
@@ -88,7 +87,11 @@ for t = 1:const.trial_per_block
         
         % Draw image
         if nbf > 0 && nbf <= const.freeview_num
-            Screen('DrawTexture',scr.main,t_handle,texrect,const.large_rect);
+            if const.runNum <= 10
+                Screen('DrawTexture',scr.main,t_handle,texrect,const.large_rect);
+            else
+                Screen('DrawTexture',scr.main,t_handle,texrect,const.small_rect);
+            end
         end
         
         % Screen flip

@@ -12,7 +12,7 @@ function main(const)
 % none
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 13 / 01 / 2021
+% Last update : 22 / 02 / 2021
 % Project :     natImaSacCtr
 % Version :     1.0
 % ----------------------------------------------------------------------

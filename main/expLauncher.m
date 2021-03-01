@@ -50,7 +50,7 @@ const.mkVideo           =   0;                  % Make a video of a run         
 
 % External controls
 % -----------------
-const.tracker           =   0;              % run with eye tracker                              0 = NO  , 1 = YES
+const.tracker           =   1;              % run with eye tracker                              0 = NO  , 1 = YES
 
 % Run order and number per condition
 % ----------------------------------
